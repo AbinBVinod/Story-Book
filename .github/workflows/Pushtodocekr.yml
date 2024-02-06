@@ -4,7 +4,7 @@ on: push
 
 jobs:
   push-to-registry:
-    name: Story-book
+    name: story-book
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
