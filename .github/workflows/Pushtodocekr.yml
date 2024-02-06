@@ -1,24 +1,24 @@
 name: Build and push Docker image to docker hub
 
 on: push
+
 jobs:
-  push-to-registry :
-     name: Story-book
-     runs-on: ubuntu-latest
-   steps:
-     - name: Check out the repo
-       uses : actions/checkout@v3
+  push-to-registry:
+    name: Story-book
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
 
-    
-    - name: Login to docker hub
-      uses: docker/login-action@v2
-       with:
-         username: ${{ secrets.DOCKERHUB_USERNAME }}
-         password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to docker hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and push
-      uses: docker/build-push-actions@v4
-      with: 
-        context: ./
-        push: true
-        tags: AbinBVinod/githubactionpushed:latest
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with: 
+          context: ./
+          push: true
+          tags: AbinBVinod/githubactionpushed:latest
